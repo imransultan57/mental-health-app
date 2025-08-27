@@ -9,7 +9,7 @@ python-dotenv>=1.0
 
 # OpenAI / Groq AI SDK
 openai>=1.0
-groq>=1.0
+groq
 
 # For handling CORS if needed
 django-cors-headers>=4.0
