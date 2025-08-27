@@ -66,7 +66,9 @@ DATABASES = {
     }
 }
 
-STATIC_URL = "/static/"
-STATICFILES_DIRS = [BASE_DIR / "chat/static"]
+STATIC_URL = '/static/'
+
+# This is where collectstatic will put all your static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
