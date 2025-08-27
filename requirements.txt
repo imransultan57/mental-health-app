@@ -1,0 +1,24 @@
+# Django framework
+Django>=4.2
+
+# Environment variables
+python-dotenv>=1.0
+
+# Database driver (SQLite comes default with Django, use psycopg2 for PostgreSQL)
+# psycopg2>=2.9  # uncomment if using PostgreSQL
+
+# OpenAI / Groq AI SDK
+openai>=1.0
+groq>=1.0
+
+# For handling CORS if needed
+django-cors-headers>=4.0
+
+# For forms and authentication
+django-crispy-forms>=1.15
+
+# Optional: For voice recognition (browser-based, not Python)
+# No Python package needed, handled in JS with Web Speech API
+
+# Utilities
+requests>=2.31

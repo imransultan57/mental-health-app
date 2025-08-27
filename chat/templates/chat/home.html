@@ -1,0 +1,11 @@
+{% extends 'chat/base.html' %}
+
+
+{% block content %}
+<h1>Welcome to Jarvis Mental Health Support</h1>
+{% if user.is_authenticated %}
+    <a href="{% url 'chat' %}">Go to Chat</a>
+{% else %}
+    <a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a>
+{% endif %}
+{% endblock %}
