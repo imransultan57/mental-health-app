@@ -75,7 +75,8 @@ SUPPORTIVE_RESPONSES = {
 
 @login_required
 def chat_view(request):
-    chats = ChatMessage.objects.all().order_by("-timestamp")[:50]  # latest 50 messages
+    # Fetch latest 50 messages of the current user only
+    chats = ChatMessage.objects.filter(user=request.user).order_by("-timestamp")[:50]
 
     if request.method == "POST":
         user_msg = request.POST.get("query")
@@ -94,17 +95,15 @@ def chat_view(request):
             else:
                 response = SUPPORTIVE_RESPONSES["neutral"][0]
 
-            # Save bot response (Jarvis)
+            # Save bot response (Jarvis) for the same user
             ChatMessage.objects.create(
-                user=request.user,  # you can also create a separate bot user
+                user=request.user,
                 message=f"Jarvis: {response}"
             )
 
         return redirect("chat")  # reload page
 
     return render(request, "chat/chat.html", {"chats": chats})
-
-
 
 
 
